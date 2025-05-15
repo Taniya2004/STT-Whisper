@@ -16,13 +16,15 @@ app = tk.Tk()
 app.withdraw()  
 
 try:
-    model = whisper.load_model("small")  # Changed from base to small for better accuracy
+    model = whisper.load_model("small") 
 except Exception as e:
     messagebox.showerror("Model Load Error", f"Whisper model failed to load:\n{e}")
     app.destroy()
     raise SystemExit
 
 app.deiconify()  
+app.lift()
+app.focus_force()
 recording = False
 frames = []
 stream = None
